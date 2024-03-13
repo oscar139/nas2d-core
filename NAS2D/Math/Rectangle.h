@@ -32,7 +32,7 @@ namespace NAS2D
 		*/
 		constexpr static Rectangle<BaseType> Create(Point<BaseType> startPoint, Point<BaseType> endPoint)
 		{
-			return {startPoint, endPoint - startPoint};
+		return {startPoint, endPoint - startPoint};
 		}
 
 
@@ -76,7 +76,11 @@ namespace NAS2D
 			return (size.x <= 0) || (size.y <= 0);
 		}
 
-		void startPoint(NAS2D::Point<BaseType> newStartPoint)
+		constexpr bool negative() const
+		{
+			return (size.x < 0) || (size.y < 0);
+		}
+
 		void startPointSet(NAS2D::Point<BaseType> newStartPoint)
 		{
 			position = newStartPoint;
