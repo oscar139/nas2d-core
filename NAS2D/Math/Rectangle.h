@@ -81,26 +81,37 @@ namespace NAS2D
 			return (size.x < 0) || (size.y < 0);
 		}
 
-        /**
-        * Sets the start point of the rectangle.
-        *
-        * @param newStartPoint The new start point of the rectangle.
-        */
-        void startPointSet(NAS2D::Point<BaseType> newStartPoint)
-        {
-        position = newStartPoint;
-        }
+		/**
+		* Sets the start point of the rectangle.
+		*
+		* @param newStartPoint The new start point of the rectangle.
+		*/
+		void startPointSet(NAS2D::Point<BaseType> newStartPoint)
+		{
+		position = newStartPoint;
+		}
 
-        /**
-        * Produces a new rectangle translated from the original rectangle by the specified offset.
-        *
-        * @param translationVector The vector to translate the rectangle to a new rectangle.
-        * @return A new rectangle translated from the original rectangle.
-        */
-        constexpr Rectangle translate(Vector<BaseType> translationVector) const
-        {
+		/**
+		* Produces a new rectangle translated from the original rectangle by the specified offset.
+		*
+		* @param translationVector The vector to translate the rectangle to a new rectangle.
+		* @return A new rectangle translated from the original rectangle.
+		*/
+		constexpr Rectangle translate(Vector<BaseType> translationVector) const
+		{
 			return {position + translationVector, size};
-        }
+		}
+
+		/**
+		* Produces a new rectangle whose borders are offset from the original rectangle.
+		*
+		* @param offset The vector by which to offset the new rectangle.
+		* @return A new rectangle offset from the original rectangle.
+		*/
+		constexpr Rectangle offset(Vector<BaseType> offset) const
+		{
+			return {position - offset, size + offset * 2};
+		}
 
 		constexpr Rectangle inset(BaseType amount) const
 		{
