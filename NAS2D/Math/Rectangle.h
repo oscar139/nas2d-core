@@ -94,12 +94,12 @@ namespace NAS2D
         /**
         * Produces a new rectangle translated from the original rectangle by the specified offset.
         *
-        * @param offset The offset vector to translate the rectangle to a new rectangle.
+        * @param translationVector The vector to translate the rectangle to a new rectangle.
         * @return A new rectangle translated from the original rectangle.
         */
-        constexpr Rectangle translate(Vector<BaseType> offset) const
+        constexpr Rectangle translate(Vector<BaseType> translationVector) const
         {
-        return {position + offset, size};
+			return {position + translationVector, size};
         }
 
 		constexpr Rectangle inset(BaseType amount) const
