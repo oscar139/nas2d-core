@@ -81,16 +81,21 @@ namespace NAS2D
 			return (size.x < 0) || (size.y < 0);
 		}
 
-		void startPointSet(NAS2D::Point<BaseType> newStartPoint)
-		{
-			position = newStartPoint;
-		}
+        /**
+        * Sets the start point of the rectangle.
+        *
+        * @param newStartPoint The new start point of the rectangle.
+        */
+        void startPointSet(NAS2D::Point<BaseType> newStartPoint)
+        {
+        position = newStartPoint;
+        }
 
         /**
         * Produces a new rectangle translated from the original rectangle by the specified offset.
         *
         * @param offset The offset vector to translate the rectangle to a new rectangle.
-        * @return A new triangle translated from the original rectangle.
+        * @return A new rectangle translated from the original rectangle.
         */
         constexpr Rectangle translate(Vector<BaseType> offset) const
         {
