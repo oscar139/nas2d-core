@@ -52,6 +52,10 @@ TEST(Rectangle, startPointSet) {
 }
 
 TEST(Rectangle, translate) {
+	NAS2D::Rectangle<int> rect{{0, 0}, {1, 1}};
+	NAS2D::Rectangle<int> newRect = rect.translate({10, 10});
+	EXPECT_EQ((NAS2D::Rectangle<int>{{0, 0}, {1, 1}}), rect);
+	EXPECT_EQ((NAS2D::Rectangle<int>{{10, 10}, {1, 1}}), newRect);
 	EXPECT_EQ((NAS2D::Rectangle<int>{{1, 1}, {1, 1}}), (NAS2D::Rectangle<int>{{0, 0}, {1, 1}}).translate({1, 1}));
 	EXPECT_EQ((NAS2D::Rectangle<int>{{2, 2}, {1, 1}}), (NAS2D::Rectangle<int>{{1, 1}, {1, 1}}).translate({1, 1}));
 	EXPECT_EQ((NAS2D::Rectangle<int>{{4, 6}, {5, 6}}), (NAS2D::Rectangle<int>{{3, 4}, {5, 6}}).translate({1, 2}));

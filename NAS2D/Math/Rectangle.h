@@ -86,10 +86,16 @@ namespace NAS2D
 			position = newStartPoint;
 		}
 
-		constexpr Rectangle translate(Vector<BaseType> offset) const
-		{
-			return {position + offset, size};
-		}
+        /**
+        * Produces a new rectangle translated from the original rectangle by the specified offset.
+        *
+        * @param offset The offset vector to translate the rectangle to a new rectangle.
+        * @return A new triangle translated from the original rectangle.
+        */
+        constexpr Rectangle translate(Vector<BaseType> offset) const
+        {
+        return {position + offset, size};
+        }
 
 		constexpr Rectangle inset(BaseType amount) const
 		{
