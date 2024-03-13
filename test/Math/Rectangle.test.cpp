@@ -47,7 +47,7 @@ TEST(Rectangle, sizeSet) {
 
 TEST(Rectangle, startPointSet) {
 	NAS2D::Rectangle<int> rect{{1, 2}, {3, 4}};
-	EXPECT_NO_THROW(rect.startPoint({5, 6}));
+	EXPECT_NO_THROW(rect.startPointSet({5, 6}));
 	EXPECT_EQ((NAS2D::Rectangle<int>{{5, 6}, {3, 4}}), rect);
 }
 

@@ -23,6 +23,13 @@ namespace NAS2D
 		Vector<BaseType> size;
 
 
+		/**
+		* Creates a rectangle given the start and end points.
+		*
+		* @param startPoint The start point of the rectangle.
+		* @param endPoint The end point of the rectangle.
+		* @return The created rectangle.
+		*/
 		constexpr static Rectangle<BaseType> Create(Point<BaseType> startPoint, Point<BaseType> endPoint)
 		{
 			return {startPoint, endPoint - startPoint};
@@ -70,6 +77,7 @@ namespace NAS2D
 		}
 
 		void startPoint(NAS2D::Point<BaseType> newStartPoint)
+		void startPointSet(NAS2D::Point<BaseType> newStartPoint)
 		{
 			position = newStartPoint;
 		}
