@@ -61,6 +61,12 @@ TEST(Rectangle, translate) {
 	EXPECT_EQ((NAS2D::Rectangle<int>{{4, 6}, {5, 6}}), (NAS2D::Rectangle<int>{{3, 4}, {5, 6}}).translate({1, 2}));
 }
 
+TEST(Rectangle, offset) {
+	EXPECT_EQ((NAS2D::Rectangle<int>{{1, 2}, {10, 10}}).offset({1, 1}), (NAS2D::Rectangle<int>{{0, 1}, {12, 12}}));
+	EXPECT_EQ((NAS2D::Rectangle<int>{{1, 2}, {3, 4}}).offset({0, 0}), (NAS2D::Rectangle<int>{{1, 2}, {3, 4}}));
+	EXPECT_EQ((NAS2D::Rectangle<int>{{1, 2}, {10, 10}}).offset({-1, -1}), (NAS2D::Rectangle<int>{{2, 3}, {8, 8}}));
+}
+
 TEST(Rectangle, inset) {
 	// Intuitive test is for start and end point adjustments
 	EXPECT_EQ((NAS2D::Point{1, 1}), (NAS2D::Rectangle<int>{{0, 0}, {10, 10}}.inset(1).position));
