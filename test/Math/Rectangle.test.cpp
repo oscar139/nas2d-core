@@ -39,6 +39,38 @@ TEST(Rectangle, crossYPoint) {
 	EXPECT_EQ((NAS2D::Point{1, 6}), (NAS2D::Rectangle<int>{{1, 2}, {3, 4}}.crossYPoint()));
 }
 
+TEST(Rectangle, upperLeft)
+{
+	EXPECT_EQ((NAS2D::Point{0, 0}), (NAS2D::Rectangle<int>{{0, 0}, {10, 10}}.upperLeft()));
+	EXPECT_EQ((NAS2D::Point{-10, 0}), (NAS2D::Rectangle<int>{{0, 0}, {-10, 10}}.upperLeft()));
+	EXPECT_EQ((NAS2D::Point{0, -10}), (NAS2D::Rectangle<int>{{0, 0}, {10, -10}}.upperLeft()));
+	EXPECT_EQ((NAS2D::Point{-10, -10}), (NAS2D::Rectangle<int>{{0, 0}, {-10, -10}}.upperLeft()));
+}
+
+TEST(Rectangle, upperRight)
+{
+	EXPECT_EQ((NAS2D::Point{10,0}), (NAS2D::Rectangle<int>{{0, 0}, {10, 10}}.upperRight()));
+	EXPECT_EQ((NAS2D::Point{0, 0}), (NAS2D::Rectangle<int>{{0, 0}, {-10, 10}}.upperRight()));
+	EXPECT_EQ((NAS2D::Point{10, -10}), (NAS2D::Rectangle<int>{{0, 0}, {10, -10}}.upperRight()));
+	EXPECT_EQ((NAS2D::Point{0, -10}), (NAS2D::Rectangle<int>{{0, 0}, {-10, -10}}.upperRight()));
+}
+
+TEST(Rectangle, lowerRight)
+{
+	EXPECT_EQ((NAS2D::Point{10, 10}), (NAS2D::Rectangle<int>{{0, 0}, {10, 10}}.lowerRight()));
+	EXPECT_EQ((NAS2D::Point{0, 10}), (NAS2D::Rectangle<int>{{0, 0}, {-10, 10}}.lowerRight()));
+	EXPECT_EQ((NAS2D::Point{10, 0}), (NAS2D::Rectangle<int>{{0, 0}, {10, -10}}.lowerRight()));
+	EXPECT_EQ((NAS2D::Point{0, 0}), (NAS2D::Rectangle<int>{{0, 0}, {-10, -10}}.lowerRight()));
+}
+
+TEST(Rectangle, lowerLeft)
+{
+	EXPECT_EQ((NAS2D::Point{0, 10}), (NAS2D::Rectangle<int>{{0, 0}, {10, 10}}.lowerLeft()));
+	EXPECT_EQ((NAS2D::Point{-10, 10}), (NAS2D::Rectangle<int>{{0, 0}, {-10, 10}}.lowerLeft()));
+	EXPECT_EQ((NAS2D::Point{0, 0}), (NAS2D::Rectangle<int>{{0, 0}, {10, -10}}.lowerLeft()));
+	EXPECT_EQ((NAS2D::Point{-10, 0}), (NAS2D::Rectangle<int>{{0, 0}, {-10, -10}}.lowerLeft()));
+}
+
 TEST(Rectangle, sizeSet) {
 	NAS2D::Rectangle<int> rect{{1, 2}, {3, 4}};
 	rect.size = {5, 6};

@@ -66,6 +66,62 @@ namespace NAS2D
 			return {position.x, position.y + size.y};
 		}
 
+		constexpr Point<BaseType> upperLeft() const
+		{
+			NAS2D::Point<BaseType> point = position;
+			if (size.x < 0)
+			{
+				point.x += size.x;
+			}
+			if (size.y < 0)
+			{
+				point.y += size.y;
+			}
+			return point;
+		}
+
+		constexpr Point<BaseType> upperRight() const
+		{
+			NAS2D::Point<BaseType> point = position;
+			if (size.x > 0)
+			{
+				point.x += size.x;
+			}
+			if(size.y < 0)
+			{
+				point.y += size.y;
+			}
+			return point;
+		}
+
+		constexpr Point<BaseType> lowerRight() const
+		{
+			NAS2D::Point<BaseType> point = position;
+			if (size.x > 0)
+			{
+				point.x += size.x;
+			}
+			if(size.y > 0)
+			{
+				point.y += size.y;
+			}
+			return point;
+		}
+
+		constexpr Point<BaseType> lowerLeft() const
+		{
+			NAS2D::Point<BaseType> point = position;
+			if (size.x < 0)
+			{
+				point.x += size.x;
+			}
+			if(size.y > 0)
+			{
+				point.y += size.y;
+			}
+			return point;
+		}
+
 		constexpr bool null() const
 		{
 			return (size.x == 0) || (size.y == 0);
