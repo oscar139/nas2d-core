@@ -75,6 +75,20 @@ TEST(Rectangle, lowerLeft)
 	EXPECT_EQ((NAS2D::Point{-10, 0}), (NAS2D::Rectangle<int>{{0, 0}, {-10, -10}}.lowerLeft()));
 }
 
+TEST(Rectangle, pointAgreement)
+{
+	NAS2D::Rectangle<int> rect{{0, 0}, {10, 10}};
+	NAS2D::Rectangle<int> negativeRect{{0, 0}, {-10, -10}};
+	EXPECT_EQ(rect.startPoint(), rect.upperLeft());
+	EXPECT_EQ(rect.crossXPoint(), rect.upperRight());
+	EXPECT_EQ(rect.crossYPoint(), rect.lowerLeft());
+	EXPECT_EQ(rect.endPoint(), rect.lowerRight());
+	EXPECT_EQ(negativeRect.startPoint(), negativeRect.lowerRight());
+	EXPECT_EQ(negativeRect.crossXPoint(), negativeRect.lowerLeft());
+	EXPECT_EQ(negativeRect.crossYPoint(), negativeRect.upperRight());
+	EXPECT_EQ(negativeRect.endPoint(), negativeRect.upperLeft());
+}
+
 TEST(Rectangle, sizeSet) {
 	NAS2D::Rectangle<int> rect{{1, 2}, {3, 4}};
 	rect.size = {5, 6};
