@@ -103,7 +103,7 @@ namespace NAS2D
 		}
 
 		/**
-		* Produces a new rectangle whose borders are offset from the original rectangle.
+		* Produces a new rectangle whose borders are offset by a vector from the original rectangle.
 		*
 		* @param offset The vector by which to offset the new rectangle.
 		* @return A new rectangle offset from the original rectangle.
