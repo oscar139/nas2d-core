@@ -62,9 +62,14 @@ TEST(Rectangle, translate) {
 }
 
 TEST(Rectangle, offset) {
+	//Vector offset
 	EXPECT_EQ((NAS2D::Rectangle<int>{{1, 2}, {10, 10}}).offset({1, 1}), (NAS2D::Rectangle<int>{{0, 1}, {12, 12}}));
 	EXPECT_EQ((NAS2D::Rectangle<int>{{1, 2}, {3, 4}}).offset({0, 0}), (NAS2D::Rectangle<int>{{1, 2}, {3, 4}}));
 	EXPECT_EQ((NAS2D::Rectangle<int>{{1, 2}, {10, 10}}).offset({-1, -1}), (NAS2D::Rectangle<int>{{2, 3}, {8, 8}}));
+	//Scalar offset
+	EXPECT_EQ((NAS2D::Rectangle<int>{{1, 1}, {10, 10}}).offset(1), (NAS2D::Rectangle<int>{{0, 0}, {12, 12}}));
+	EXPECT_EQ((NAS2D::Rectangle<int>{{1, 1}, {10, 10}}).offset(0), (NAS2D::Rectangle<int>{{1, 1}, {10, 10}}));
+	EXPECT_EQ((NAS2D::Rectangle<int>{{1, 1}, {10, 10}}).offset(-1), (NAS2D::Rectangle<int>{{2, 2}, {8, 8}}));
 }
 
 TEST(Rectangle, inset) {
