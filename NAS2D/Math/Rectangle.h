@@ -35,6 +35,18 @@ namespace NAS2D
 		return {startPoint, endPoint - startPoint};
 		}
 
+		/**
+		* Returns a normalized rectangle.
+		*
+		* A normalized rectangle is the equivalent rectangle with vector size having both components size.x and size.y positive.
+		* For example, a rectangle with position (5, 5) and size (-5, -5) is normalized to a rectangle with position (0, 0) and size (5, 5).
+		*
+		* @return The normalized rectangle.
+		*/
+		constexpr Rectangle<BaseType> normalized() const
+		{
+		return {upperLeft(), lowerRight() - upperLeft()};
+		}
 
 		constexpr bool operator==(const Rectangle& rect) const
 		{

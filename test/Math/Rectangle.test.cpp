@@ -8,6 +8,13 @@ TEST(Rectangle, CreatePointPoint) {
 	EXPECT_EQ((NAS2D::Rectangle<int>{{1, 1}, {1, 2}}), NAS2D::Rectangle<int>::Create(NAS2D::Point{1, 1}, NAS2D::Point{2, 3}));
 }
 
+TEST(Rectangle, normalized){
+	EXPECT_EQ((NAS2D::Rectangle<int>{{0, 0}, {0, 0}}), (NAS2D::Rectangle<int>{{0, 0}, {0, 0}}).normalized());
+	EXPECT_EQ((NAS2D::Rectangle<int>{{0, 0}, {10, 10}}), (NAS2D::Rectangle<int>{{0, 0}, {10, 10}}).normalized());
+	EXPECT_EQ((NAS2D::Rectangle<int>{{-10, 0}, {10, 10}}), (NAS2D::Rectangle<int>{{0, 0}, {-10, 10}}).normalized());
+	EXPECT_EQ((NAS2D::Rectangle<int>{{0, -10}, {10, 10}}), (NAS2D::Rectangle<int>{{0, 0}, {10, -10}}).normalized());
+	EXPECT_EQ((NAS2D::Rectangle<int>{{-10, -10}, {10, 10}}), (NAS2D::Rectangle<int>{{0, 0}, {-10, -10}}).normalized());
+}
 
 TEST(Rectangle, size) {
 	EXPECT_EQ((NAS2D::Vector{0, 0}), (NAS2D::Rectangle<int>{{0, 0}, {0, 0}}.size));
