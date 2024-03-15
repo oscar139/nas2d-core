@@ -113,6 +113,18 @@ namespace NAS2D
 			return {position - offset, size + offset * 2};
 		}
 
+		/**
+		* Produces a new rectangle whose borders are offset by a scalar from the original rectangle.
+		*
+		* @param offset The scalar by which to offset the new rectangle.
+		* @return A new rectangle offset from the original rectangle.
+		*/
+		constexpr Rectangle offset(BaseType offset) const
+		{
+			NAS2D::Vector<BaseType> offsetVector = {offset, offset};
+			return {position - offsetVector, size + offsetVector * 2};
+		}
+
 		constexpr Rectangle inset(BaseType amount) const
 		{
 			return {{position.x + amount, position.y + amount}, {size.x - 2 * amount, size.y - 2 * amount}};
