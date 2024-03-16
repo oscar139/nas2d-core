@@ -193,14 +193,34 @@ namespace NAS2D
 			return {position - offsetVector, size + offsetVector * 2};
 		}
 
+		//TODO: Determine if this is the correct behavior
+		/**
+		* Produces a new rectangle whose borders are inset by a scalar from the original rectangle.
+		* The rectangle will also be normal. Positive and negative values will produce the same result.
+		* A negative or positive inset is semantically analogous to negative or positive deceleration.
+		*
+		* @param amount The scalar by which to inset the new rectangle.
+		* @return A new rectangle inset from the original rectangle.
+		*/
 		constexpr Rectangle inset(BaseType amount) const
 		{
-			return {{position.x + amount, position.y + amount}, {size.x - 2 * amount, size.y - 2 * amount}};
+			amount > 0 ? amount *= -1: amount = amount;
+			return this->normalized().offset(amount);
 		}
 
+		/**
+		* Produces a new rectangle whose borders are inset by a vector from the original rectangle.
+		* The rectangle will also be normal. Positive and negative values will produce the same result.
+		* A negative or positive inset is semantically analogous to negative or positive deceleration.
+		*
+		* @param amount The scalar by which to inset the new rectangle.
+		* @return A new rectangle inset from the original rectangle.
+		*/
 		constexpr Rectangle inset(Vector<BaseType> amount) const
 		{
-			return {position + amount, size - (amount * 2)};
+			amount.x > 0 ? amount.x *= -1: amount.x = amount.x;
+			amount.y > 0 ? amount.y *= -1: amount.y = amount.y;
+			return this->normalized().offset(amount);
 		}
 
 		constexpr Rectangle inset(Vector<BaseType> amountStart, Vector<BaseType> amountEnd) const
