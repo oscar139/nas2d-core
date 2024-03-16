@@ -194,6 +194,7 @@ namespace NAS2D
 		}
 
 		//TODO: Determine if this is the correct behavior
+		//The choice to allow negative inset meaning positive offset may need to be restored if it was used somewhere.
 		/**
 		* Produces a new rectangle whose borders are inset by a scalar from the original rectangle.
 		* The rectangle will also be normal. Positive and negative values will produce the same result.
@@ -204,7 +205,10 @@ namespace NAS2D
 		*/
 		constexpr Rectangle inset(BaseType amount) const
 		{
+			//amount *= -1;
+			//^^^ uncomment to restore the original behavior
 			amount > 0 ? amount *= -1: amount = amount;
+			//comment out to restore the original behavior
 			return this->normalized().offset(amount);
 		}
 
@@ -218,11 +222,18 @@ namespace NAS2D
 		*/
 		constexpr Rectangle inset(Vector<BaseType> amount) const
 		{
+			//amount.x *= -1;
+			//amount.y *= -1;
+			//^^^ uncomment to restore the original behavior
 			amount.x > 0 ? amount.x *= -1: amount.x = amount.x;
 			amount.y > 0 ? amount.y *= -1: amount.y = amount.y;
+			//comment out to restore the original behavior
 			return this->normalized().offset(amount);
 		}
 
+		//TODO: Determine if this is the correct behavior
+		//I completely fail to see the value of this function. I don't know where we are gaining much by not simply using inset or resize and translate.
+		//Leaving here for now so we don't break any dependencies.
 		constexpr Rectangle inset(Vector<BaseType> amountStart, Vector<BaseType> amountEnd) const
 		{
 			return {position + amountStart, size - amountStart - amountEnd};
