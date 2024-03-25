@@ -31,4 +31,5 @@ void UIElement::draw()
 {
 	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
 	r.drawBoxFilled(mBox, mBoxColor);
+	mToolTip.draw();
 }
