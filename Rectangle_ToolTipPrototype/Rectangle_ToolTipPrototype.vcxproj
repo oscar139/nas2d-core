@@ -145,7 +145,7 @@
     <ClInclude Include="Observer.h" />
     <ClInclude Include="TestToolTipPrototype.h" />
     <ClInclude Include="ToolTip.h" />
-    <ClInclude Include="UiElement.h" />
+    <ClInclude Include="UIElement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

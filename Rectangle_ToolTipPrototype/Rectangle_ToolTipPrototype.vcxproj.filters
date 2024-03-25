@@ -41,7 +41,7 @@
     <ClInclude Include="Observable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UiElement.h">
+    <ClInclude Include="UIElement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
