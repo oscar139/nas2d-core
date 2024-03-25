@@ -1,6 +1,8 @@
 #pragma once
 #include "Observer.h"
+#include "NAS2D/Utility.h"
 #include "NAS2D/Renderer/Renderer.h"
+#include "NAS2D/EventHandler.h"
 #include "NAS2D/Math/Rectangle.h"
 #include "ToolTip.h"
 
@@ -17,4 +19,5 @@ class UIElement : public Observer
 	private:
 		ToolTip mToolTip;
 		NAS2D::Rectangle<int> mBox;
+		NAS2D::Color mBoxColor = NAS2D::Color::Red;
 };
