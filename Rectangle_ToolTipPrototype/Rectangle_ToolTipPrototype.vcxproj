@@ -138,12 +138,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestToolTipPrototype.cpp" />
     <ClCompile Include="ToolTip.cpp" />
+    <ClCompile Include="UIElement.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Observable.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="TestToolTipPrototype.h" />
     <ClInclude Include="ToolTip.h" />
+    <ClInclude Include="UiElement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
