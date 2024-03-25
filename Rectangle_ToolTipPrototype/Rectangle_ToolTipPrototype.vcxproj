@@ -140,6 +140,8 @@
     <ClCompile Include="ToolTip.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Observable.h" />
+    <ClInclude Include="Observer.h" />
     <ClInclude Include="TestToolTipPrototype.h" />
     <ClInclude Include="ToolTip.h" />
   </ItemGroup>
