@@ -8,7 +8,7 @@
 // = Acknowledgment of your use of NAS2D is appreciated but is not required.
 // ==================================================================================
 
-#include "TestGraphics.h"
+#include "TestToolTipPrototype.h"
 
 #include <NAS2D/Game.h>
 #include <NAS2D/Utility.h>
@@ -23,8 +23,8 @@ int main()
 {
 	try
 	{
-		NAS2D::Game game("NAS2D Graphics Test", "NAS2D_GraphicsTest", "LairWorks");
-		game.go(new TestGraphics());
+		NAS2D::Game game("NAS2D_ToolTipProtoType", "NAS2D_ToolTipProtoType", "LairWorks");
+		game.go(new TestToolTipPrototype());
 	}
 	catch(std::exception& e)
 	{
