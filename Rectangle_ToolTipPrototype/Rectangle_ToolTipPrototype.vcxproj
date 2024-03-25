@@ -137,9 +137,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestToolTipPrototype.cpp" />
+    <ClCompile Include="ToolTip.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestToolTipPrototype.h" />
+    <ClInclude Include="ToolTip.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
