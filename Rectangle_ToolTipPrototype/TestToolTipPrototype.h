@@ -9,6 +9,7 @@
 
 #include "Observable.h"
 #include "Observer.h"
+#include "UIElement.h"
 
 
 class TestToolTipPrototype : public NAS2D::State, public Observable

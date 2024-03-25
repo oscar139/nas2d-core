@@ -35,12 +35,15 @@ void TestToolTipPrototype::initialize()
 
 	r.drawImage(mDxImage, {256, 256});
 	r.drawImage(mOglImage, {768, 256});
+
+	UIElement* boxElement = new UIElement(NAS2D::Rectangle{100, 100, 100, 100}.normalized());
+	mObservers.push_back(boxElement);
 }
 
 NAS2D::State* TestToolTipPrototype::update()
 {
 	r.clearScreen(NAS2D::Color::Gray);
-
+	notifyObservers();
 
 	return this;
 }
