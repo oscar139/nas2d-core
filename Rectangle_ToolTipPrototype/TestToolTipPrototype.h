@@ -5,12 +5,20 @@
 #include "NAS2D/Resource/Image.h"
 #include "NAS2D/Renderer/Renderer.h"
 
+#include <vector>
 
-class TestToolTipPrototype : public NAS2D::State
+#include "Observable.h"
+#include "Observer.h"
+
+
+class TestToolTipPrototype : public NAS2D::State, public Observable
 {
 public:
 	TestToolTipPrototype();
 	~TestToolTipPrototype() override;
+	void addObserver(Observer* observer);
+	void removeObserver(Observer* observer);
+	void notifyObservers();
 
 protected:
 	void initialize() override;
@@ -26,4 +34,5 @@ private:
 	NAS2D::Image mDxImage;
 	NAS2D::Image mOglImage;
 	NAS2D::Renderer& r;
+	std::vector<Observer*> mObservers;
 };

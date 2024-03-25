@@ -1,4 +1,4 @@
-#include "TestGraphics.h"
+#include "TestToolTipPrototype.h"
 
 #include <NAS2D/Utility.h>
 #include <NAS2D/Renderer/Renderer.h>
@@ -77,3 +77,21 @@ void TestToolTipPrototype::onMouseDown(NAS2D::EventHandler::MouseButton /*button
 
 void TestToolTipPrototype::onWindowResized(int /*w*/, int /*h*/)
 {}
+
+void TestToolTipPrototype ::addObserver(Observer* observer)
+{
+		mObservers.push_back(observer);
+}
+
+void TestToolTipPrototype::removeObserver(Observer* observer)
+{
+	mObservers.erase(std::remove(mObservers.begin(), mObservers.end(), observer), mObservers.end());
+}
+
+void TestToolTipPrototype::notifyObservers()
+{
+	for (auto observer : mObservers)
+	{
+		observer->update();
+	}
+}
